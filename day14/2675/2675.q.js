@@ -8,7 +8,6 @@ const [n, ...inputs] = fs
 
 let arr = [];
 let str = [];
-let obj = [];
 
 for (let i = 0; i < inputs.length; i++) {
   arr.push(inputs[i].split(" "));
@@ -27,9 +26,8 @@ for (let i = 0; i < arr.length; i++) {
   str += " ";
 }
 
-// for (let k = 0; k < arr.length; k++) {
-//   obj = str.slice(k, arr[k][1].length-1);
-// }
+str = str.split(" ");
 
-//str.push(artr[0][1].slice(0, 1));
-console.log(str);
+for (let k = 0; k < arr.length; k++) {
+  console.log(str[k]);
+}
