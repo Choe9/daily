@@ -6,27 +6,25 @@ const input = require("fs")
 
 let change = input.toUpperCase();
 let arr = [];
-const result = [
-  ...new Set(
-    change.split("").filter((item, index) => change.indexOf(item) !== index)
-  ),
-];
+
+//중복확인
 const getElCount = (arr) =>
   arr.split("").reduce((ac, v) => ({ ...ac, [v]: (ac[v] || 0) + 1 }), {});
 const obj = getElCount(change);
 
-for (let i = 0; i < result.length; i++) {
-  for (let key in obj) {
-    if (key === result[i]) {
-      arr.push([key, obj[key]]);
-    }
-  }
+//객체정렬
+const out = Object.fromEntries(
+  Object.entries(obj).sort(([, a], [, b]) => (a > b ? -1 : 1))
+);
+
+for (let key in out) {
+  arr.push([key, out[key]]);
 }
 
-let sortArr = [...arr].sort((a, b) => a - b);
-
-console.log(result);
-console.log(obj);
-console.log(arr.sort((a, b) => a - b));
-console.log(sortArr);
-console.log(sortArr.length);
+if (change.length === 1) {
+  console.log(change);
+} else if (arr[0][1] === arr[1][1]) {
+  console.log("?");
+} else {
+  console.log(arr[0][0]);
+}
