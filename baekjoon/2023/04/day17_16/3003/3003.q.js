@@ -2,11 +2,10 @@
 const input = require("fs")
   .readFileSync(__dirname + "/test.txt")
   .toString()
-  .trim()
-  .split(" ");
+  .trim();
 
 const c = [1, 1, 2, 2, 2, 8];
-const arr = input.map(Number);
+const arr = input.split(" ").map(Number);
 let e = [];
 
 for (let i = 0; i < arr.length; i++) {
