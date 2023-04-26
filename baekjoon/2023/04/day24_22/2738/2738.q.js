@@ -38,4 +38,4 @@ function chunk(data = [], size = 3) {
 
 console.log(chunk(sum));
 let hap = chunk(sum).join("\n");
-console.log(hap.replace(/,/g, ""));
+console.log(hap.replace(/,/g, " "));
